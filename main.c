@@ -114,7 +114,9 @@ static char const m_target_periph_name[] = "Nordic_Blinky";     /**< Name of the
 /**@snippet [UART Initialization] */
 static void uart_init(void)
 {
+    // err_code is created inside so should be good
     uint32_t                     err_code;
+    // WE assume this type comes from uart.h at the moment, subject to change
     app_uart_comm_params_t const comm_params =
     {
         .rx_pin_no    = RX_PIN_NUMBER,
@@ -557,7 +559,9 @@ int main(void)
     gatt_init();
     db_discovery_init();
     lbs_c_init();
-
+    uart_init();
+    while(app_uart_putx('F') == NRF_ERROR_BUSY);
+    while(app_uart_putx('\n') == NRF_ERROR_BUSY);
     // Start execution.
     NRF_LOG_INFO("Blinky CENTRAL example started.");
     scan_start();
