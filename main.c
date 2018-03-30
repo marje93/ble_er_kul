@@ -62,8 +62,7 @@
 #include "ble_db_discovery.h"
 #include "ble_lbs_c.h"
 #include "nrf_ble_gatt.h"
-/*#include "app_uart.h"
-
+#include "app_uart.h"
 
 
 
@@ -73,13 +72,13 @@
 #if defined (UARTE_PRESENT)
 #include "nrf_uarte.h"
 #endif
-*/
+
 #include "nrf_log.h"
 #include "nrf_log_ctrl.h"
 #include "nrf_log_default_backends.h"
 
-//#define UART_TX_BUF_SIZE                256                                         /**< UART TX buffer size. */
-//#define UART_RX_BUF_SIZE                256                                         /**< UART RX buffer size. */
+#define UART_TX_BUF_SIZE                256                                         /**< UART TX buffer size. */
+#define UART_RX_BUF_SIZE                256                                         /**< UART RX buffer size. */
 
 
 
